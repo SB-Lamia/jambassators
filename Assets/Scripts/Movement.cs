@@ -4,29 +4,23 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public List<Vector2> positions;
     public GameObject player;
     public float playerSpeed = 1f;
     private bool isMoving = false;
-    private Vector2 mousePos;
+    private Vector3 startPos;
+    private Vector3 targetPos;
 
     void Start()
     {
-        positions = new List<Vector2>();
-
+        startPos = new Vector2(player.transform.position.x, player.transform.position.z);
     }
 
-    public void EnableMoving()
+    public void Moving(Vector3 pos)
     {
-        isMoving = true;
-    }
-
-    void Update() 
-    {
-        if (Input.GetMouseButtonDown(0) && !isMoving)
-        {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
+        targetPos = pos;
+        // isMoving = true;
+        //player.transform.position = Vector2.MoveTowards(player.transform.position, pos, playerSpeed * Time.deltaTime);
+        player.transform.position = pos;
     }
 
     public void Move()

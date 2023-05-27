@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7754158210426880474}
   - component: {fileID: 3986691321226403813}
+  - component: {fileID: 2205743157930742496}
   m_Layer: 0
   m_Name: ForestHex
   m_TagString: Untagged
@@ -48,6 +49,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5938077517726053091, guid: 4517ae71fd39e8b49b61111a0a05506c, type: 3}
+--- !u!114 &2205743157930742496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879427324587767121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f49761676e47042a2862a1d85b810b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &936094346511504148
 PrefabInstance:
   m_ObjectHideFlags: 0

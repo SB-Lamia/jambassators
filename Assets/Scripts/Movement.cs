@@ -8,14 +8,15 @@ public class Movement : MonoBehaviour
     private bool isMoving = false;
     private Vector3 targetPos;
     public float speed = 2f;
-
+    public ResourceManager resourceManager;
 
     public void Moving(Vector3 pos)
     {
-        if(Vector3.Distance(player.transform.position, pos) <= 3f)
+        if(Vector3.Distance(player.transform.position, pos) <= 3f && !isMoving)
         {
             targetPos = pos;
             isMoving = true;
+            resourceManager.UpdateFood(-1);
         }
         else
         {

@@ -1215,10 +1215,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileObjects:
-  - {fileID: 5190929655821142656, guid: 56f01b3c58955dc44adb21658c65d6ef, type: 3}
-  - {fileID: 7229190913244439037, guid: 11526dd701d17c144b4fd35fad6d8c80, type: 3}
-  - {fileID: 4436186286235382777, guid: 125148ce6b3cee74ba88177c6fe395ee, type: 3}
+  - {fileID: 4419781813275306461, guid: 2479adece1dd87e49bdddc941be25faa, type: 3}
+  - {fileID: 6081213171217881926, guid: 09a2903e526b189498318e09525600f9, type: 3}
   - {fileID: 1879427324587767121, guid: a9460e0b73ddf2e4fa37420857c04067, type: 3}
+  - {fileID: 7900220840478701684, guid: 2a337df8eb2012241acd65b3c9e69e0e, type: 3}
+  - {fileID: 6739647037969153374, guid: b870c3ac12ee4914ca1a2add10bd54f2, type: 3}
+  - {fileID: 7229190913244439037, guid: 11526dd701d17c144b4fd35fad6d8c80, type: 3}
+  - {fileID: 1718553518478822645, guid: a9bad1293fb068d48a818cdf9e5ac450, type: 3}
+  - {fileID: 1879427324587767121, guid: a9460e0b73ddf2e4fa37420857c04067, type: 3}
+  - {fileID: 6494317338061635987, guid: fcb74cf150382064ca6501d2b5111c93, type: 3}
+  - {fileID: 4419781813275306461, guid: 2479adece1dd87e49bdddc941be25faa, type: 3}
+  - {fileID: 7900220840478701684, guid: 2a337df8eb2012241acd65b3c9e69e0e, type: 3}
+  - {fileID: 7020775699443623744, guid: cd48d7d5f28356d458e26e3e577dc40b, type: 3}
   TileNum: 0
   oddeven: 0
   firstObject: 0
@@ -1829,6 +1837,7 @@ GameObject:
   - component: {fileID: 700551312594639029}
   - component: {fileID: 700551312594639034}
   - component: {fileID: 700551312594639035}
+  - component: {fileID: 700551312594639037}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1886,7 +1895,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700551312594639032}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -1908,6 +1917,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &700551312594639037
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700551312594639032}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &719879891557114514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,6 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 700551312594639032}
   speed: 1
+  resourceManager: {fileID: 1968679280}
 --- !u!1 &719879893446726454
 GameObject:
   m_ObjectHideFlags: 0

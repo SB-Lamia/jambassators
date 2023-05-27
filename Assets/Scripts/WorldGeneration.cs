@@ -47,7 +47,7 @@ public class WorldGeneration : MonoBehaviour
                         Instantiate(mountain[Random.Range(0, 2)], new Vector3(k * oddeven - 2 - 2, 0, i), mountain[Random.Range(0, 2)].transform.rotation);
                         firstObject = false;
                     }
-                    TileNum = Random.Range(0, 4);
+                    TileNum = Random.Range(0, tileObjects.Count);
                     if ((i >= yMoveMentTile * 19) && (k == endGoal-1))
                     {
                         Instantiate(endGoalPrefab, new Vector3(k * oddeven, 0, i), endGoalPrefab.transform.rotation);
@@ -69,7 +69,8 @@ public class WorldGeneration : MonoBehaviour
                         Instantiate(mountain[Random.Range(0, 2)], new Vector3(k * 2 - oddeven - 2 - 2, 0, i), mountain[Random.Range(0, 2)].transform.rotation);
                         firstObject = false;
                     }
-                    TileNum = Random.Range(0, 4);
+                    TileNum = Random.Range(0, tileObjects.Count);
+
                     if ((i >= yMoveMentTile * 19) && (k == endGoal-1))
                     {
                         Instantiate(endGoalPrefab, new Vector3(k * 2-oddeven, 0, i), endGoalPrefab.transform.rotation);

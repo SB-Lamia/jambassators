@@ -1003,7 +1003,10 @@ MonoBehaviour:
   oddeven: 0
   firstObject: 0
   lastObject: 0
-  mountain: {fileID: 3203415331161350917, guid: e52e42b01aa6b75458858168e7ba4f18, type: 3}
+  mountain:
+  - {fileID: 3203415331161350917, guid: e52e42b01aa6b75458858168e7ba4f18, type: 3}
+  - {fileID: 962960369370415954, guid: 10ae293a2c3cf0a4d925c0107486cc95, type: 3}
+  - {fileID: 7020775699443623744, guid: cd48d7d5f28356d458e26e3e577dc40b, type: 3}
 --- !u!4 &1092443977
 Transform:
   m_ObjectHideFlags: 0

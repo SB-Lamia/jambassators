@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodTile : MonoBehaviour
+public class DangerTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
 
@@ -13,6 +13,6 @@ public class FoodTile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateFood(5);
+        resourceManager.UpdateCivilians(-1);
     }
 }

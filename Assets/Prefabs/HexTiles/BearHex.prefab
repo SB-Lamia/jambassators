@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7511532199861979097}
   - component: {fileID: 131138266885242930}
   - component: {fileID: 2304183411197157197}
+  - component: {fileID: -5412831130775250837}
   m_Layer: 0
   m_Name: BearHex
   m_TagString: Untagged
@@ -61,6 +62,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f49761676e47042a2862a1d85b810b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5412831130775250837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081213171217881926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f305a88b3aa67ca469cfcb2b97db1340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceManager: {fileID: 0}
 --- !u!1001 &5066111022441806721
 PrefabInstance:
   m_ObjectHideFlags: 0

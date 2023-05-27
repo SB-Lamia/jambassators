@@ -11,7 +11,6 @@ public class ForestHex : MonoBehaviour
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
     }
 
-    // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
         resourceManager.UpdateWood(1);

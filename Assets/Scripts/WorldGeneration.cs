@@ -11,6 +11,7 @@ public class WorldGeneration : MonoBehaviour
     public int oddeven;
     public bool firstObject;
     public bool lastObject;
+
     private void Awake()
     {
         firstObject = true;

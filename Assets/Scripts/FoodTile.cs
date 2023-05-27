@@ -5,6 +5,7 @@ using UnityEngine;
 public class FoodTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public string name;
 
     void Start()
     {
@@ -13,6 +14,21 @@ public class FoodTile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateFood(5);
+        GenerateOutcome();
+    }
+
+    void GenerateOutcome()
+    {
+        int rng = Random.Range(0, 10);
+        if(rng <= 3)
+        {
+            Debug.Log("Bad hunt");
+            resourceManager.UpdateFood(3);
+        }
+        else
+        {
+            Debug.Log("Good hunt");
+            resourceManager.UpdateFood(5);
+        }
     }
 }

@@ -13,6 +13,22 @@ public class DangerTile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateCivilians(-1);
+        GenerateOutcome();
+    }
+
+    void GenerateOutcome()
+    {
+        int rng = Random.Range(0, 10);
+        if(rng <= 3)
+        {
+            Debug.Log("Bad bear");
+            resourceManager.UpdateCivilians(-5);
+        }
+        else
+        {
+            Debug.Log("Good bear");
+            resourceManager.UpdateCivilians(-1);
+            resourceManager.UpdateFood(5);
+        }
     }
 }

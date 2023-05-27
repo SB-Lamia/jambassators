@@ -12,8 +12,15 @@ public class Movement : MonoBehaviour
 
     public void Moving(Vector3 pos)
     {
-        targetPos = pos;
-        isMoving = true;
+        if(Vector3.Distance(player.transform.position, pos) <= 2f)
+        {
+            targetPos = pos;
+            isMoving = true;
+        }
+        else
+        {
+            Debug.Log("Too far");
+        }
     }
 
     void Update() {

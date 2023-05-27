@@ -13,6 +13,22 @@ public class ForestHex : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateWood(1);
+        GenerateOutcome();
     }
+
+    void GenerateOutcome()
+    {
+        int rng = Random.Range(0, 10);
+        if(rng <= 3)
+        {
+            Debug.Log("Bad chop");
+            resourceManager.UpdateWood(3);
+        }
+        else
+        {
+            Debug.Log("Good chop");
+            resourceManager.UpdateWood(5);
+        }
+    }
+
 }

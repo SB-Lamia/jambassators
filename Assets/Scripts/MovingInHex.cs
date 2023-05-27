@@ -14,7 +14,6 @@ public class MovingInHex : MonoBehaviour
 
     private void OnMouseDown() 
     {
-        Debug.Log("Clicked");
         newPos = new Vector3(transform.position.x, 1.5f,  transform.position.z);
         movement.Moving(newPos);
     }

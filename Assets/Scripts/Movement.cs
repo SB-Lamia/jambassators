@@ -7,14 +7,18 @@ public class Movement : MonoBehaviour
     public List<Vector2> positions;
     public GameObject player;
     public float playerSpeed = 1f;
-    [HideInInspector]
-    public bool isMoving = false;
+    private bool isMoving = false;
     private Vector2 mousePos;
 
     void Start()
     {
         positions = new List<Vector2>();
 
+    }
+
+    public void EnableMoving()
+    {
+        isMoving = true;
     }
 
     void Update() 

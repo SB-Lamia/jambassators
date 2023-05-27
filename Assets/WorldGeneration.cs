@@ -9,15 +9,19 @@ public class WorldGeneration : MonoBehaviour
     public const int xMovementTile = 1;
     public const float yMoveMentTile = 1.7f;
     public int oddeven;
+    public bool firstObject;
+    public bool lastObject;
     private void Awake()
     {
+        firstObject = true;
+        lastObject = false;
         oddeven = 2;
         SetupWorld();
     }
 
     public void SetupWorld()
     {
-        for (float i = 1.7f; i < yMoveMentTile * 100000; i = i + yMoveMentTile)
+        for (float i = 1.7f; i < yMoveMentTile * 100; i = i + yMoveMentTile)
         {
             for (int k = -3; k < 3; k++)
             {

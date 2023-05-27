@@ -248,7 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileObjects:
   - {fileID: 5190929655821142656, guid: 56f01b3c58955dc44adb21658c65d6ef, type: 3}
-  - {fileID: 3203415331161350917, guid: e52e42b01aa6b75458858168e7ba4f18, type: 3}
   - {fileID: 7229190913244439037, guid: 11526dd701d17c144b4fd35fad6d8c80, type: 3}
   - {fileID: 4436186286235382777, guid: 125148ce6b3cee74ba88177c6fe395ee, type: 3}
   - {fileID: 1879427324587767121, guid: a9460e0b73ddf2e4fa37420857c04067, type: 3}
@@ -256,6 +255,7 @@ MonoBehaviour:
   oddeven: 0
   firstObject: 0
   lastObject: 0
+  mountain: {fileID: 3203415331161350917, guid: e52e42b01aa6b75458858168e7ba4f18, type: 3}
 --- !u!4 &1092443977
 Transform:
   m_ObjectHideFlags: 0

@@ -1,40 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class WorldGeneration : MonoBehaviour
 {
     public List<GameObject> tileObjects;
+    List<int> RandomWorld = new List<int>();
     public int TileNum;
     public const int xMovementTile = 1;
     public const float yMoveMentTile = 1.7f;
     public int oddeven;
     public bool firstObject;
     public bool lastObject;
+    public GameObject mountain;
     private void Awake()
     {
         firstObject = true;
         lastObject = false;
         oddeven = 2;
+        RandomWorld.Add(-2);
+        RandomWorld.Add(-3);
         SetupWorld();
     }
 
     public void SetupWorld()
     {
-        for (float i = 1.7f; i < yMoveMentTile * 100; i = i + yMoveMentTile)
+        int startNum = 0;
+        int endNum = 0;
+        for (float i = 1.7f; i < yMoveMentTile * 20; i = i + yMoveMentTile)
         {
-            for (int k = -3; k < 3; k++)
+            startNum = RandomWorld[Random.Range(0,2)];
+            endNum = RandomWorld[Random.Range(0,2)] * -1;
+            firstObject = true;
+            for (int k = startNum; k < endNum; k++)
             {
                 if(oddeven == 2)
                 {
+                    if (firstObject == true)
+                    {
+                        Instantiate(mountain, new Vector3(k * oddeven - 2, 0, i), mountain.transform.rotation);
+                        Instantiate(mountain, new Vector3(k * oddeven - 2 - 2, 0, i), mountain.transform.rotation);
+                        firstObject = false;
+                    }
                     TileNum = Random.Range(0, 4);
                     Instantiate(tileObjects[TileNum], new Vector3(k * oddeven, 0, i), tileObjects[TileNum].transform.rotation);
+                    if (k == endNum-1)
+                    {
+                        Instantiate(mountain, new Vector3(k * oddeven + 2, 0, i), mountain.transform.rotation);
+                        Instantiate(mountain, new Vector3(k * oddeven + 2 + 2, 0, i), mountain.transform.rotation);
+                    }
                 }
                 else
                 {
+                    if (firstObject == true)
+                    {
+                        Instantiate(mountain, new Vector3(k * 2 - oddeven - 2, 0, i), mountain.transform.rotation);
+                        Instantiate(mountain, new Vector3(k * 2 - oddeven - 2 - 2, 0, i), mountain.transform.rotation);
+                        firstObject = false;
+                    }
                     TileNum = Random.Range(0, 4);
                     Instantiate(tileObjects[TileNum], new Vector3(k * 2-oddeven, 0, i), tileObjects[TileNum].transform.rotation);
+                    if (k == endNum-1)
+                    {
+                        Instantiate(mountain, new Vector3(k * 2 - oddeven + 2, 0, i), mountain.transform.rotation);
+                        Instantiate(mountain, new Vector3(k * 2 - oddeven + 2 + 2, 0, i), mountain.transform.rotation);
+                    }
                 }
+                
             }
             if (oddeven == 2)
             {

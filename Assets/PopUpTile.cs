@@ -1,26 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PopUpTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject IconHelp;
+    public bool newGameHelp;
 
     void Awake()
     {
         IconHelp = GameObject.Find(this.gameObject.name + "IconHelp");
-        IconHelp.SetActive(false);
+        newGameHelp = true;
+    }
+
+    void Update()
+    {
+        if (newGameHelp && Input.GetMouseButton(0))
+        {
+            IconHelp.SetActive(false);
+            newGameHelp = false;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        IconHelp.SetActive(true);
+        if(newGameHelp == false)
+        {
+            IconHelp.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        IconHelp.SetActive(false);
+        if (newGameHelp == false)
+        {
+            IconHelp.SetActive(false);
+        }
     }
-
 }

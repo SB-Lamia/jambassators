@@ -14,6 +14,7 @@ public class WorldGeneration : MonoBehaviour
     public bool firstObject;
     public bool lastObject;
     public List<GameObject> mountain;
+    public bool didGoalSpawn;
 
     public GameObject endGoalPrefab;
     
@@ -24,11 +25,13 @@ public class WorldGeneration : MonoBehaviour
         oddeven = 2;
         RandomWorld.Add(-2);
         RandomWorld.Add(-3);
+        didGoalSpawn = false;
         SetupWorld();
     }
 
     public void SetupWorld()
     {
+        DestroyWorld();
         int startNum = 0;
         int endNum = 0;
         for (float i = 1.7f; i <= yMoveMentTile * 20; i = i + yMoveMentTile)
@@ -36,7 +39,7 @@ public class WorldGeneration : MonoBehaviour
             startNum = RandomWorld[Random.Range(0,2)];
             endNum = RandomWorld[Random.Range(0,2)] * -1;
             firstObject = true;
-            int endGoal = Random.Range(startNum, endNum+1);
+            int endGoal = Random.Range(startNum, endNum);
             for (int k = startNum; k < endNum; k++)
             {
                 if(oddeven == 2)
@@ -51,6 +54,7 @@ public class WorldGeneration : MonoBehaviour
                     if ((i >= yMoveMentTile * 19) && (k == endGoal-1))
                     {
                         Instantiate(endGoalPrefab, new Vector3(k * oddeven, 0, i), endGoalPrefab.transform.rotation);
+                        didGoalSpawn = true;
                     }
                     else{
                         Instantiate(tileObjects[TileNum], new Vector3(k * oddeven, 0, i), tileObjects[TileNum].transform.rotation);
@@ -74,6 +78,7 @@ public class WorldGeneration : MonoBehaviour
                     if ((i >= yMoveMentTile * 19) && (k == endGoal-1))
                     {
                         Instantiate(endGoalPrefab, new Vector3(k * 2-oddeven, 0, i), endGoalPrefab.transform.rotation);
+                        didGoalSpawn = true;
                     }
                     else{
                         Instantiate(tileObjects[TileNum], new Vector3(k * 2-oddeven, 0, i), tileObjects[TileNum].transform.rotation);
@@ -96,17 +101,18 @@ public class WorldGeneration : MonoBehaviour
                 oddeven = 2;
             }
         }
+        if(didGoalSpawn == false)
+        {
+            Debug.Log("Didnt load goal");
+            SetupWorld();
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void DestroyWorld()
+    {;
+        foreach (GameObject worldGenTile in GameObject.FindGameObjectsWithTag("WorldGen"))
+        {
+            Destroy(worldGenTile);
+        }
     }
 }

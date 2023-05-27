@@ -14,6 +14,7 @@ public class WorldGeneration : MonoBehaviour
     public bool firstObject;
     public bool lastObject;
     public GameObject mountain;
+    
     private void Awake()
     {
         firstObject = true;

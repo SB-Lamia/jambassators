@@ -32,6 +32,7 @@ public class ResourceManager : MonoBehaviour
         food += amount;
         foodText.text = food.ToString();
     }
+
     //Takes an amount from a woodtile script and updates woodvalues
     public void UpdateWood(int amount)
     {

@@ -1720,6 +1720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 700551312594639032}
   speed: 1
+  resourceManager: {fileID: 1968679280}
 --- !u!1 &719879893446726454
 GameObject:
   m_ObjectHideFlags: 0

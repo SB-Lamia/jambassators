@@ -14,6 +14,6 @@ public class ForestHex : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateWood(100);
+        resourceManager.UpdateWood(1);
     }
 }

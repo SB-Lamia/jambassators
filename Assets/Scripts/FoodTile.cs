@@ -14,6 +14,6 @@ public class FoodTile : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        resourceManager.UpdateFood(100);
+        resourceManager.UpdateFood(5);
     }
 }

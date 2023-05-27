@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class TurnsManager : MonoBehaviour
 {
+    public Movement movement;
+    
+    void Start()
+    {
+        //movement.EnableMoving();
+    }
+    
     public void EndTurns()
     {
         Debug.Log("End Turns");

@@ -6,6 +6,7 @@ using TMPro;
 public class DangerTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public AudioManager audioManager;
     public GameObject player; 
     private IEnumerator coroutine;
     private int successFood = 5;
@@ -30,6 +31,7 @@ public class DangerTile : MonoBehaviour
         descriptionTexts[2] = $"30% chance: The fight goes well. You will gain {successFood} food, but you will lose {successCivilians} people";
         descriptionTexts[3] = $"70% chance: The fight goes poorly. You will lose {failCivilians} people";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,6 +54,7 @@ public class DangerTile : MonoBehaviour
             resourceManager.UpdateCivilians(successCivilians);
             resourceManager.UpdateFood(successFood);
         }
+        audioManager.GetWound();
         resource.SetActive(false);
         empty = true;
     }

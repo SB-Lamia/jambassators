@@ -15,6 +15,7 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI civiliansText;
 
     public GameObject endGame;
+    public AudioManager audioManager;
 
     //private IEnumerator DisplayChange;
 
@@ -24,6 +25,7 @@ public class ResourceManager : MonoBehaviour
         foodText.text = food.ToString();
         woodText.text = wood.ToString();
         civiliansText.text = civilians.ToString();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -58,6 +60,7 @@ public class ResourceManager : MonoBehaviour
         StartCoroutine(DisplayDeaths(amount));
         if(civilians == 0)
         {
+            audioManager.GetLose();
             endGame.SetActive(true);
         }
     }

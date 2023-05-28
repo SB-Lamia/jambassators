@@ -1,13 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DangerTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public GameObject player; 
+    private int successFood = 5;
+    private int successCivilians = -1;
+    private int failCivilians = -3;
+    public List<string> descriptionTexts;
+
+    public GameObject infoBox;
+    public List<TextMeshProUGUI> textBoxes;
+    public GameObject glowTile;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        descriptionTexts[0] = "BEAR";
+        descriptionTexts[1] = "Fight the bear";
+        descriptionTexts[2] = $"30% chance: The fight goes well. You will gain {successFood} food, but you will lose {successCivilians} people";
+        descriptionTexts[3] = $"70% chance: The fight goes poorly. You will lose {failCivilians} people";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
     }
 
@@ -19,16 +34,52 @@ public class DangerTile : MonoBehaviour
     void GenerateOutcome()
     {
         int rng = Random.Range(0, 10);
-        if(rng <= 3)
+        if(rng <= 7)
         {
-            Debug.Log("Bad bear");
-            resourceManager.UpdateCivilians(-5);
+            resourceManager.UpdateCivilians(failCivilians);
         }
         else
         {
-            Debug.Log("Good bear");
-            resourceManager.UpdateCivilians(-1);
-            resourceManager.UpdateFood(5);
+            resourceManager.UpdateCivilians(successCivilians);
+            resourceManager.UpdateFood(successFood);
         }
+    }
+    
+    IEnumerator coroutine;
+
+    void OnMouseEnter()
+    {
+        Debug.Log("Mouse");
+        if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
+        {
+            glowTile.SetActive(true);
+        }
+        coroutine = DisplayPossibilities();
+        StartCoroutine(coroutine);
+    }
+    void OnMouseExit()
+    {
+        glowTile.SetActive(false);
+        StopCoroutine(coroutine);
+        infoBox.SetActive(false);
+    }
+
+    public IEnumerator DisplayPossibilities()
+    {
+        float duration = 1f;
+        float currentTime = 0f;
+        while(currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        int count = 0;
+        infoBox.SetActive(true);
+        foreach(TextMeshProUGUI textBox in textBoxes)
+        {
+            textBox.text = descriptionTexts[count];
+            count++;
+        }
+        yield break;
     }
 }

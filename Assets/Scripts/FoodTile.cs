@@ -35,12 +35,10 @@ public class FoodTile : MonoBehaviour
         int rng = Random.Range(0, 10);
         if(rng <= 3)
         {
-            Debug.Log("Bad hunt");
             resourceManager.UpdateFood(failFood);
         }
         else
         {
-            Debug.Log("Good hunt");
             resourceManager.UpdateFood(successFood);
         }
     }
@@ -49,7 +47,6 @@ public class FoodTile : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Debug.Log("Mouse");
         if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
         {
             glowTile.SetActive(true);
@@ -66,7 +63,7 @@ public class FoodTile : MonoBehaviour
 
     public IEnumerator DisplayPossibilities()
     {
-        float duration = 2f;
+        float duration = 1f;
         float currentTime = 0f;
         while(currentTime < duration)
         {

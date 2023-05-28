@@ -6,8 +6,8 @@ using TMPro;
 public class DangerTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
-    public AudioManager audioManager;
     public GameObject player; 
+    private IEnumerator coroutine;
     private int successFood = 5;
     private int successCivilians = -1;
     private int failCivilians = -3;
@@ -17,21 +17,27 @@ public class DangerTile : MonoBehaviour
     public List<TextMeshProUGUI> textBoxes;
     public GameObject glowTile;
 
+    private bool empty = false;
+    public GameObject resource;
+
     void Start()
     {
         SetRotation();
+        coroutine = DisplayPossibilities();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "BEAR";
         descriptionTexts[1] = "Fight the bear";
         descriptionTexts[2] = $"30% chance: The fight goes well. You will gain {successFood} food, but you will lose {successCivilians} people";
         descriptionTexts[3] = $"70% chance: The fight goes poorly. You will lose {failCivilians} people";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if(!empty)
+        {
         GenerateOutcome();
+        }
     }
 
     void GenerateOutcome()
@@ -46,20 +52,21 @@ public class DangerTile : MonoBehaviour
             resourceManager.UpdateCivilians(successCivilians);
             resourceManager.UpdateFood(successFood);
         }
-        audioManager.GetWound();
+        resource.SetActive(false);
+        empty = true;
     }
-    
-    IEnumerator coroutine;
 
     void OnMouseEnter()
     {
-        Debug.Log("Mouse");
         if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
         {
             glowTile.SetActive(true);
         }
-        coroutine = DisplayPossibilities();
-        StartCoroutine(coroutine);
+        if(!empty)
+        {
+            StartCoroutine(coroutine);
+        }
+
     }
     void OnMouseExit()
     {

@@ -6,8 +6,8 @@ using TMPro;
 public class ForestHex : MonoBehaviour
 {
     public ResourceManager resourceManager;
-    public AudioManager audioManager;
     public GameObject player; 
+    private IEnumerator coroutine;
     private int successWood = 5;
     private int failWood = 3;
     public List<string> descriptionTexts;
@@ -16,21 +16,27 @@ public class ForestHex : MonoBehaviour
     public List<TextMeshProUGUI> textBoxes;
     public GameObject glowTile;
 
+    private bool empty = false;
+    public GameObject resource;
+
     void Start()
     {
         SetRotation();
+        coroutine = DisplayPossibilities();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "Big Trees";
         descriptionTexts[1] = "Chop some wood";
         descriptionTexts[2] = $"50% chance: Your woodsmen are strong. They gather {successWood} usable lumber";
         descriptionTexts[3] = $"50% chance: Your woodsmen are tired from the journey. They gather {failWood} usable lumber";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if(!empty)
+        {
         GenerateOutcome();
+        }
     }
 
     void GenerateOutcome()
@@ -44,10 +50,9 @@ public class ForestHex : MonoBehaviour
         {
             resourceManager.UpdateWood(5);
         }
-        audioManager.GetWood();
+        resource.SetActive(false);
+        empty = true;
     }
-    
-    IEnumerator coroutine;
 
     void OnMouseEnter()
     {
@@ -55,8 +60,10 @@ public class ForestHex : MonoBehaviour
         {
             glowTile.SetActive(true);
         }
-        coroutine = DisplayPossibilities();
-        StartCoroutine(coroutine);
+        if(!empty)
+        {
+            StartCoroutine(coroutine);
+        }
     }
     void OnMouseExit()
     {

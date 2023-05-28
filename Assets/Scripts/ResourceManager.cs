@@ -14,6 +14,8 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI woodText;
     public TextMeshProUGUI civiliansText;
 
+    public GameObject endGame;
+
     //private IEnumerator DisplayChange;
 
 
@@ -35,6 +37,10 @@ public class ResourceManager : MonoBehaviour
         food += amount;
         foodText.text = food.ToString();
         StartCoroutine(DisplayChange(foodText, amount));
+        if(food <= 0)
+        {
+            UpdateCivilians(-1);
+        }
     }
 
     //Takes an amount from a woodtile script and updates woodvalues
@@ -50,7 +56,10 @@ public class ResourceManager : MonoBehaviour
         civilians += amount;
         civiliansText.text = civilians.ToString();
         StartCoroutine(DisplayDeaths(amount));
-
+        if(civilians == 0)
+        {
+            endGame.SetActive(true);
+        }
     }
 
     IEnumerator DisplayChange(TextMeshProUGUI targetText, int amount)

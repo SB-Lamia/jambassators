@@ -6,8 +6,8 @@ using TMPro;
 public class FoodTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
-    public AudioManager audioManager;
     public GameObject player; 
+    private IEnumerator coroutine;
     private int successFood = 5;
     private int failFood = 3;
     public List<string> descriptionTexts;
@@ -16,21 +16,27 @@ public class FoodTile : MonoBehaviour
     public List<TextMeshProUGUI> textBoxes;
     public GameObject glowTile;
 
+    private bool empty = false;
+    public GameObject resource;
+
     void Start()
     {
         SetRotation();
+        coroutine = DisplayPossibilities();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "Wild Game";
         descriptionTexts[1] = "Go on a hunt";
         descriptionTexts[2] = $"70% chance: The hunt goes well. You will gain {successFood} food for the tribe";
         descriptionTexts[3] = $"30% chance: The hunt goes poorly. You will gain {failFood} food for the tribe";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
-        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if(!empty)
+        {
         GenerateOutcome();
+        }
     }
 
     void GenerateOutcome()
@@ -44,10 +50,9 @@ public class FoodTile : MonoBehaviour
         {
             resourceManager.UpdateFood(successFood);
         }
-        audioManager.GetFood();
+        resource.SetActive(false);
+        empty = true;
     }
-
-    IEnumerator coroutine;
 
     void OnMouseEnter()
     {
@@ -55,8 +60,10 @@ public class FoodTile : MonoBehaviour
         {
             glowTile.SetActive(true);
         }
-        coroutine = DisplayPossibilities();
-        StartCoroutine(coroutine);
+        if(!empty)
+        {
+            StartCoroutine(coroutine);
+        }
     }
     void OnMouseExit()
     {
@@ -88,4 +95,5 @@ public class FoodTile : MonoBehaviour
         float rotation = Random.Range(0, 6) * 60;
         this.transform.Rotate(0f, 0f, rotation, Space.Self);
     }
+
 }

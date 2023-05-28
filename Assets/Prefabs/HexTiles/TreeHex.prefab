@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8839152225425872703}
   m_Layer: 0
   m_Name: TreeHex
-  m_TagString: Untagged
+  m_TagString: WorldGen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

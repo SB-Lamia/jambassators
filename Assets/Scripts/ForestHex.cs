@@ -17,6 +17,7 @@ public class ForestHex : MonoBehaviour
 
     void Start()
     {
+        SetRotation();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "Big Trees";
         descriptionTexts[1] = "Chop some wood";
@@ -80,4 +81,9 @@ public class ForestHex : MonoBehaviour
         yield break;
     }
 
+    void SetRotation()
+    {
+        float rotation = Random.Range(0, 6) * 60;
+        this.transform.Rotate(0f, 0f, rotation, Space.Self);
+    }
 }

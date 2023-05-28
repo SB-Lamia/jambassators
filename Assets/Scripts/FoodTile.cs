@@ -17,6 +17,7 @@ public class FoodTile : MonoBehaviour
 
     void Start()
     {
+        SetRotation();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "Wild Game";
         descriptionTexts[1] = "Go on a hunt";
@@ -78,5 +79,10 @@ public class FoodTile : MonoBehaviour
             count++;
         }
         yield break;
+    }
+        void SetRotation()
+    {
+        float rotation = Random.Range(0, 6) * 60;
+        this.transform.Rotate(0f, 0f, rotation, Space.Self);
     }
 }

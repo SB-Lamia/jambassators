@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5886024928191274481}
   - component: {fileID: 4053498390953466394}
   - component: {fileID: 2768328776042464613}
+  - component: {fileID: -8839152225425872703}
   m_Layer: 0
   m_Name: TreeHex
   m_TagString: WorldGen
@@ -60,6 +61,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f49761676e47042a2862a1d85b810b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8839152225425872703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923452324383523182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4db93459c74da0499431f2bc2b00a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3169279959155828962

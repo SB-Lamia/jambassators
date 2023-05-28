@@ -18,6 +18,7 @@ public class DangerTile : MonoBehaviour
 
     void Start()
     {
+        SetRotation();
         player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "BEAR";
         descriptionTexts[1] = "Fight the bear";
@@ -81,5 +82,11 @@ public class DangerTile : MonoBehaviour
             count++;
         }
         yield break;
+    }
+
+    void SetRotation()
+    {
+        float rotation = Random.Range(0, 6) * 60;
+        this.transform.Rotate(0f, 0f, rotation, Space.Self);
     }
 }

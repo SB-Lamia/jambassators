@@ -21,6 +21,8 @@ public class PopUpTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             IconHelp.SetActive(false);
             startGameHelp = false;
             Time.timeScale = 1.0f;
+            LavaMovement lavaMovement = GameObject.Find("LavaMovement").GetComponent<LavaMovement>();
+            lavaMovement.StartLava();
         }
     }
 

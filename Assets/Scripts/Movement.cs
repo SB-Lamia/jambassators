@@ -9,6 +9,11 @@ public class Movement : MonoBehaviour
     private Vector3 targetPos;
     public float speed = 2f;
     public ResourceManager resourceManager;
+    public LavaMovement lavaMovement;
+
+    void Awake(){
+        lavaMovement = GameObject.Find("LavaMovement").GetComponent<LavaMovement>();
+    }
 
     public void Moving(Vector3 pos)
     {
@@ -27,11 +32,11 @@ public class Movement : MonoBehaviour
     void Update() {
         if(isMoving)
         {
+            
             player.transform.position = Vector3.MoveTowards(player.transform.position, targetPos, speed * Time.deltaTime);
             if(player.transform.position == targetPos)
             {
                 isMoving = false;
-                LavaMovement lavaMovement = GameObject.Find("Lavamovement").GetComponent<LavaMovement>();
                 lavaMovement.IncreaseLava();
             }
         }

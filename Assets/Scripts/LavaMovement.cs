@@ -21,13 +21,11 @@ public class LavaMovement : MonoBehaviour
 
     public void IncreaseLava()
     {
-        lavaStarted = true;
-        Debug.Log(lavaCountDown);
-        Debug.Log(lavaCountDown % 3);
         if (lavaStarted && lavaCountDown % 3 == 2)
         {
             for (int k = StartLine; k < EndLine; k++)
             {
+                Debug.Log("Lava Increased");
                 Vector3 temptpos = WorldGeneration.Instance.worldTiles[lavaRowPosition, k].transform.position;
                 Destroy(WorldGeneration.Instance.worldTiles[lavaRowPosition, k].gameObject);
                 Instantiate(LavaPrefab, temptpos, LavaPrefab.transform.rotation);

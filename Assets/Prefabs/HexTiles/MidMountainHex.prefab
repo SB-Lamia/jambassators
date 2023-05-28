@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6406429832068192294}
   m_Layer: 0
   m_Name: MidMountainHex
-  m_TagString: Untagged
+  m_TagString: WorldGen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

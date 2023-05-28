@@ -6,15 +6,18 @@ using TMPro;
 public class FoodTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public GameObject player; 
     private int successFood = 5;
     private int failFood = 3;
     public List<string> descriptionTexts;
 
     public GameObject infoBox;
     public List<TextMeshProUGUI> textBoxes;
+    public GameObject glowTile;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         descriptionTexts[0] = "Wild Game";
         descriptionTexts[1] = "Go on a hunt";
         descriptionTexts[2] = $"70% chance: The hunt goes well. You will gain {successFood} food for the tribe";
@@ -47,12 +50,16 @@ public class FoodTile : MonoBehaviour
     void OnMouseEnter()
     {
         Debug.Log("Mouse");
+        if(Vector3.Distance(player.transform.position, this.transform.position) <= 3f)
+        {
+            glowTile.SetActive(true);
+        }
         coroutine = DisplayPossibilities();
         StartCoroutine(coroutine);
     }
     void OnMouseExit()
     {
-        Debug.Log("out");
+        glowTile.SetActive(false);
         StopCoroutine(coroutine);
         infoBox.SetActive(false);
     }

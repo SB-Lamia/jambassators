@@ -58,7 +58,7 @@ public class ResourceManager : MonoBehaviour
         civilians += amount;
         civiliansText.text = civilians.ToString();
         StartCoroutine(DisplayDeaths(amount));
-        if(civilians == 0)
+        if(civilians <= 0)
         {
             audioManager.GetLose();
             endGame.SetActive(true);

@@ -9,6 +9,7 @@ public class Winning : MonoBehaviour
     public GameObject winPanel;
     public GameObject endGame;
     public ResourceManager resourceManager;
+    public AudioManager audioManager;
     public TextMeshProUGUI endGameText;
     public TextMeshProUGUI winText;
 
@@ -18,6 +19,7 @@ public class Winning : MonoBehaviour
     void Start()
     {
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     public void DisplayWins()
@@ -34,10 +36,10 @@ public class Winning : MonoBehaviour
 
         }
         else
-        {
+        { 
             endGameText.text = "You gathered enough wood to save everyone that made it this far";
         }
-        
+        audioManager.GetWin();
         //winPanel.SetActive(true);
         //winText.text = "You Win! The village is now safe";
     }

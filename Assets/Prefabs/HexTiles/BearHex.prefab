@@ -811,6 +811,7 @@ MonoBehaviour:
   - {fileID: 5783818375379018346}
   - {fileID: 6663168750304963833}
   glowTile: {fileID: 3412783817326458761}
+  resource: {fileID: 5372540315810432720}
 --- !u!1001 &2566432887964224216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -999,6 +1000,11 @@ PrefabInstance:
 --- !u!4 &4739133019655822442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 818c28a2c9babf64e93a5a62673f2614, type: 3}
+  m_PrefabInstance: {fileID: 5066111022441806721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5372540315810432720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 818c28a2c9babf64e93a5a62673f2614, type: 3}
   m_PrefabInstance: {fileID: 5066111022441806721}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7508767118819407404

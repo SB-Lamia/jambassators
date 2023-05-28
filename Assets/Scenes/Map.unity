@@ -3662,14 +3662,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9d38ecb03319c4096b4d568a9f79aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 22
-  wood: 33
-  civilians: 55
+  food: 20
+  wood: 30
+  civilians: 30
   foodText: {fileID: 178867780}
   woodText: {fileID: 170314020}
   civiliansText: {fileID: 2137273528}
   endGame: {fileID: 1463683810}
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 1411765416}
 --- !u!1001 &2002334515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3814,7 +3814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

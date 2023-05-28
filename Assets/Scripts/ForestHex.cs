@@ -46,11 +46,11 @@ public class ForestHex : MonoBehaviour
         int rng = Random.Range(0, 10);
         if(rng <= 5)
         {
-            resourceManager.UpdateWood(3);
+            resourceManager.UpdateWood(7);
         }
         else
         {
-            resourceManager.UpdateWood(5);
+            resourceManager.UpdateWood(10);
         }
         audioManager.GetWood();
         resource.SetActive(false);

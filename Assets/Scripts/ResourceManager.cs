@@ -41,7 +41,7 @@ public class ResourceManager : MonoBehaviour
         StartCoroutine(DisplayChange(foodText, amount));
         if(food <= 0)
         {
-            UpdateCivilians(-1);
+            UpdateCivilians(-3);
         }
     }
 

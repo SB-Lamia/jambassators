@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class Movement : MonoBehaviour
 {
@@ -21,7 +23,13 @@ public class Movement : MonoBehaviour
         {
             targetPos = pos;
             isMoving = true;
-            resourceManager.UpdateFood(-1);
+            if (resourceManager.food > 0)
+            {
+                decimal civilian = Math.Ceiling((decimal) resourceManager.civilians/15) * (-1);
+                resourceManager.UpdateFood((int) civilian);
+            }else{
+                resourceManager.UpdateFood(0);
+            }
         }
         else
         {

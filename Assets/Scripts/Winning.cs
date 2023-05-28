@@ -24,7 +24,7 @@ public class Winning : MonoBehaviour
 
     public void DisplayWins()
     {
-        saved = resourceManager.wood / 10;
+        saved = resourceManager.wood / 5;
         lost = resourceManager.civilians - saved;
         endGame.SetActive(true);
 

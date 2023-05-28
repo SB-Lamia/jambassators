@@ -6,6 +6,7 @@ using TMPro;
 public class FoodTile : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public AudioManager audioManager;
     public GameObject player; 
     private int successFood = 5;
     private int failFood = 3;
@@ -24,6 +25,7 @@ public class FoodTile : MonoBehaviour
         descriptionTexts[2] = $"70% chance: The hunt goes well. You will gain {successFood} food for the tribe";
         descriptionTexts[3] = $"30% chance: The hunt goes poorly. You will gain {failFood} food for the tribe";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,6 +44,7 @@ public class FoodTile : MonoBehaviour
         {
             resourceManager.UpdateFood(successFood);
         }
+        audioManager.GetFood();
     }
 
     IEnumerator coroutine;

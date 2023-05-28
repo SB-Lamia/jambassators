@@ -6,6 +6,7 @@ using TMPro;
 public class ForestHex : MonoBehaviour
 {
     public ResourceManager resourceManager;
+    public AudioManager audioManager;
     public GameObject player; 
     private int successWood = 5;
     private int failWood = 3;
@@ -24,6 +25,7 @@ public class ForestHex : MonoBehaviour
         descriptionTexts[2] = $"50% chance: Your woodsmen are strong. They gather {successWood} usable lumber";
         descriptionTexts[3] = $"50% chance: Your woodsmen are tired from the journey. They gather {failWood} usable lumber";
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,6 +44,7 @@ public class ForestHex : MonoBehaviour
         {
             resourceManager.UpdateWood(5);
         }
+        audioManager.GetWood();
     }
     
     IEnumerator coroutine;

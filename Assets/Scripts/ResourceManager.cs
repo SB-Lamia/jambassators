@@ -14,7 +14,7 @@ public class ResourceManager : MonoBehaviour
     public TextMeshProUGUI woodText;
     public TextMeshProUGUI civiliansText;
 
-    public GameObject LoseGame;
+    public GameObject endGame;
 
     //private IEnumerator DisplayChange;
 
@@ -58,7 +58,7 @@ public class ResourceManager : MonoBehaviour
         StartCoroutine(DisplayDeaths(amount));
         if(civilians == 0)
         {
-            LoseGame.SetActive(true);
+            endGame.SetActive(true);
         }
     }
 

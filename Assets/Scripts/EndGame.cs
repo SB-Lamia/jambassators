@@ -12,7 +12,6 @@ public class EndGame : MonoBehaviour
     }
     public void MainMenu()
     {
-        Debug.Log("MAINMENO");
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     public void Quit()

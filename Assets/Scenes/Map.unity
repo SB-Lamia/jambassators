@@ -982,6 +982,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winPanel: {fileID: 1647300627}
+  endGame: {fileID: 1463683810}
+  resourceManager: {fileID: 1968679280}
+  endGameText: {fileID: 420473260}
   winText: {fileID: 448388013}
 --- !u!1 &677978394
 GameObject:
@@ -1425,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1069037209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2151,7 +2154,7 @@ GameObject:
   - component: {fileID: 1463683812}
   - component: {fileID: 1463683815}
   m_Layer: 0
-  m_Name: Loser
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2468,7 +2471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1647300628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2919,7 +2922,7 @@ MonoBehaviour:
   foodText: {fileID: 178867780}
   woodText: {fileID: 170314020}
   civiliansText: {fileID: 2137273528}
-  LoseGame: {fileID: 1463683810}
+  endGame: {fileID: 0}
 --- !u!1001 &2002334515
 PrefabInstance:
   m_ObjectHideFlags: 0

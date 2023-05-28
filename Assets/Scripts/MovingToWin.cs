@@ -16,6 +16,7 @@ public class MovingToWin : MonoBehaviour
 
     private void OnMouseDown() 
     {
+        Debug.Log("winner");
         newPos = new Vector3(transform.position.x, 1.5f,  transform.position.z);
         movement.Moving(newPos);
         winning.DisplayWins();

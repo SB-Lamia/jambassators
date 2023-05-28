@@ -31,6 +31,8 @@ public class Movement : MonoBehaviour
             if(player.transform.position == targetPos)
             {
                 isMoving = false;
+                LavaMovement lavaMovement = GameObject.Find("Lavamovement").GetComponent<LavaMovement>();
+                lavaMovement.IncreaseLava();
             }
         }
     }

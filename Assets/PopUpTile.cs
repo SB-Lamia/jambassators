@@ -12,12 +12,15 @@ public class PopUpTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         IconHelp = GameObject.Find(this.gameObject.name + "IconHelp");
         startGameHelp = true;
+        Time.timeScale = 0f;
     }
     void Update()
     {
         if(Input.GetMouseButtonDown(0) && startGameHelp == true)
         {
             IconHelp.SetActive(false);
+            startGameHelp = false;
+            Time.timeScale = 1.0f;
         }
     }
 
@@ -26,6 +29,7 @@ public class PopUpTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (startGameHelp == false)
         {
             IconHelp.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
@@ -34,6 +38,7 @@ public class PopUpTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (startGameHelp == false)
         {
             IconHelp.SetActive(false);
+            Time.timeScale = 1.0f;
         }
     }
 
